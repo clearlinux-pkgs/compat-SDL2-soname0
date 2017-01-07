@@ -6,7 +6,7 @@
 #
 Name     : compat-SDL2-soname0
 Version  : 2.0.4
-Release  : 1
+Release  : 2
 URL      : https://www.libsdl.org/release/SDL2-2.0.4.tar.gz
 Source0  : https://www.libsdl.org/release/SDL2-2.0.4.tar.gz
 Summary  : Simple DirectMedia Layer
@@ -94,94 +94,94 @@ popd
 
 %files bin
 %defattr(-,root,root,-)
-/usr/bin/sdl2-config
+%exclude /usr/bin/sdl2-config
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/SDL2/SDL.h
-/usr/include/SDL2/SDL_assert.h
-/usr/include/SDL2/SDL_atomic.h
-/usr/include/SDL2/SDL_audio.h
-/usr/include/SDL2/SDL_bits.h
-/usr/include/SDL2/SDL_blendmode.h
-/usr/include/SDL2/SDL_clipboard.h
-/usr/include/SDL2/SDL_config.h
-/usr/include/SDL2/SDL_config_android.h
-/usr/include/SDL2/SDL_config_iphoneos.h
-/usr/include/SDL2/SDL_config_macosx.h
-/usr/include/SDL2/SDL_config_minimal.h
-/usr/include/SDL2/SDL_config_pandora.h
-/usr/include/SDL2/SDL_config_psp.h
-/usr/include/SDL2/SDL_config_windows.h
-/usr/include/SDL2/SDL_config_winrt.h
-/usr/include/SDL2/SDL_config_wiz.h
-/usr/include/SDL2/SDL_copying.h
-/usr/include/SDL2/SDL_cpuinfo.h
-/usr/include/SDL2/SDL_egl.h
-/usr/include/SDL2/SDL_endian.h
-/usr/include/SDL2/SDL_error.h
-/usr/include/SDL2/SDL_events.h
-/usr/include/SDL2/SDL_filesystem.h
-/usr/include/SDL2/SDL_gamecontroller.h
-/usr/include/SDL2/SDL_gesture.h
-/usr/include/SDL2/SDL_haptic.h
-/usr/include/SDL2/SDL_hints.h
-/usr/include/SDL2/SDL_joystick.h
-/usr/include/SDL2/SDL_keyboard.h
-/usr/include/SDL2/SDL_keycode.h
-/usr/include/SDL2/SDL_loadso.h
-/usr/include/SDL2/SDL_log.h
-/usr/include/SDL2/SDL_main.h
-/usr/include/SDL2/SDL_messagebox.h
-/usr/include/SDL2/SDL_mouse.h
-/usr/include/SDL2/SDL_mutex.h
-/usr/include/SDL2/SDL_name.h
-/usr/include/SDL2/SDL_opengl.h
-/usr/include/SDL2/SDL_opengl_glext.h
-/usr/include/SDL2/SDL_opengles.h
-/usr/include/SDL2/SDL_opengles2.h
-/usr/include/SDL2/SDL_opengles2_gl2.h
-/usr/include/SDL2/SDL_opengles2_gl2ext.h
-/usr/include/SDL2/SDL_opengles2_gl2platform.h
-/usr/include/SDL2/SDL_opengles2_khrplatform.h
-/usr/include/SDL2/SDL_pixels.h
-/usr/include/SDL2/SDL_platform.h
-/usr/include/SDL2/SDL_power.h
-/usr/include/SDL2/SDL_quit.h
-/usr/include/SDL2/SDL_rect.h
-/usr/include/SDL2/SDL_render.h
-/usr/include/SDL2/SDL_revision.h
-/usr/include/SDL2/SDL_rwops.h
-/usr/include/SDL2/SDL_scancode.h
-/usr/include/SDL2/SDL_shape.h
-/usr/include/SDL2/SDL_stdinc.h
-/usr/include/SDL2/SDL_surface.h
-/usr/include/SDL2/SDL_system.h
-/usr/include/SDL2/SDL_syswm.h
-/usr/include/SDL2/SDL_test.h
-/usr/include/SDL2/SDL_test_assert.h
-/usr/include/SDL2/SDL_test_common.h
-/usr/include/SDL2/SDL_test_compare.h
-/usr/include/SDL2/SDL_test_crc32.h
-/usr/include/SDL2/SDL_test_font.h
-/usr/include/SDL2/SDL_test_fuzzer.h
-/usr/include/SDL2/SDL_test_harness.h
-/usr/include/SDL2/SDL_test_images.h
-/usr/include/SDL2/SDL_test_log.h
-/usr/include/SDL2/SDL_test_md5.h
-/usr/include/SDL2/SDL_test_random.h
-/usr/include/SDL2/SDL_thread.h
-/usr/include/SDL2/SDL_timer.h
-/usr/include/SDL2/SDL_touch.h
-/usr/include/SDL2/SDL_types.h
-/usr/include/SDL2/SDL_version.h
-/usr/include/SDL2/SDL_video.h
-/usr/include/SDL2/begin_code.h
-/usr/include/SDL2/close_code.h
-/usr/lib64/libSDL2-2.0.so
-/usr/lib64/libSDL2.so
-/usr/lib64/pkgconfig/sdl2.pc
-/usr/share/aclocal/*.m4
+%exclude /usr/include/SDL2/SDL.h
+%exclude /usr/include/SDL2/SDL_assert.h
+%exclude /usr/include/SDL2/SDL_atomic.h
+%exclude /usr/include/SDL2/SDL_audio.h
+%exclude /usr/include/SDL2/SDL_bits.h
+%exclude /usr/include/SDL2/SDL_blendmode.h
+%exclude /usr/include/SDL2/SDL_clipboard.h
+%exclude /usr/include/SDL2/SDL_config.h
+%exclude /usr/include/SDL2/SDL_config_android.h
+%exclude /usr/include/SDL2/SDL_config_iphoneos.h
+%exclude /usr/include/SDL2/SDL_config_macosx.h
+%exclude /usr/include/SDL2/SDL_config_minimal.h
+%exclude /usr/include/SDL2/SDL_config_pandora.h
+%exclude /usr/include/SDL2/SDL_config_psp.h
+%exclude /usr/include/SDL2/SDL_config_windows.h
+%exclude /usr/include/SDL2/SDL_config_winrt.h
+%exclude /usr/include/SDL2/SDL_config_wiz.h
+%exclude /usr/include/SDL2/SDL_copying.h
+%exclude /usr/include/SDL2/SDL_cpuinfo.h
+%exclude /usr/include/SDL2/SDL_egl.h
+%exclude /usr/include/SDL2/SDL_endian.h
+%exclude /usr/include/SDL2/SDL_error.h
+%exclude /usr/include/SDL2/SDL_events.h
+%exclude /usr/include/SDL2/SDL_filesystem.h
+%exclude /usr/include/SDL2/SDL_gamecontroller.h
+%exclude /usr/include/SDL2/SDL_gesture.h
+%exclude /usr/include/SDL2/SDL_haptic.h
+%exclude /usr/include/SDL2/SDL_hints.h
+%exclude /usr/include/SDL2/SDL_joystick.h
+%exclude /usr/include/SDL2/SDL_keyboard.h
+%exclude /usr/include/SDL2/SDL_keycode.h
+%exclude /usr/include/SDL2/SDL_loadso.h
+%exclude /usr/include/SDL2/SDL_log.h
+%exclude /usr/include/SDL2/SDL_main.h
+%exclude /usr/include/SDL2/SDL_messagebox.h
+%exclude /usr/include/SDL2/SDL_mouse.h
+%exclude /usr/include/SDL2/SDL_mutex.h
+%exclude /usr/include/SDL2/SDL_name.h
+%exclude /usr/include/SDL2/SDL_opengl.h
+%exclude /usr/include/SDL2/SDL_opengl_glext.h
+%exclude /usr/include/SDL2/SDL_opengles.h
+%exclude /usr/include/SDL2/SDL_opengles2.h
+%exclude /usr/include/SDL2/SDL_opengles2_gl2.h
+%exclude /usr/include/SDL2/SDL_opengles2_gl2ext.h
+%exclude /usr/include/SDL2/SDL_opengles2_gl2platform.h
+%exclude /usr/include/SDL2/SDL_opengles2_khrplatform.h
+%exclude /usr/include/SDL2/SDL_pixels.h
+%exclude /usr/include/SDL2/SDL_platform.h
+%exclude /usr/include/SDL2/SDL_power.h
+%exclude /usr/include/SDL2/SDL_quit.h
+%exclude /usr/include/SDL2/SDL_rect.h
+%exclude /usr/include/SDL2/SDL_render.h
+%exclude /usr/include/SDL2/SDL_revision.h
+%exclude /usr/include/SDL2/SDL_rwops.h
+%exclude /usr/include/SDL2/SDL_scancode.h
+%exclude /usr/include/SDL2/SDL_shape.h
+%exclude /usr/include/SDL2/SDL_stdinc.h
+%exclude /usr/include/SDL2/SDL_surface.h
+%exclude /usr/include/SDL2/SDL_system.h
+%exclude /usr/include/SDL2/SDL_syswm.h
+%exclude /usr/include/SDL2/SDL_test.h
+%exclude /usr/include/SDL2/SDL_test_assert.h
+%exclude /usr/include/SDL2/SDL_test_common.h
+%exclude /usr/include/SDL2/SDL_test_compare.h
+%exclude /usr/include/SDL2/SDL_test_crc32.h
+%exclude /usr/include/SDL2/SDL_test_font.h
+%exclude /usr/include/SDL2/SDL_test_fuzzer.h
+%exclude /usr/include/SDL2/SDL_test_harness.h
+%exclude /usr/include/SDL2/SDL_test_images.h
+%exclude /usr/include/SDL2/SDL_test_log.h
+%exclude /usr/include/SDL2/SDL_test_md5.h
+%exclude /usr/include/SDL2/SDL_test_random.h
+%exclude /usr/include/SDL2/SDL_thread.h
+%exclude /usr/include/SDL2/SDL_timer.h
+%exclude /usr/include/SDL2/SDL_touch.h
+%exclude /usr/include/SDL2/SDL_types.h
+%exclude /usr/include/SDL2/SDL_version.h
+%exclude /usr/include/SDL2/SDL_video.h
+%exclude /usr/include/SDL2/begin_code.h
+%exclude /usr/include/SDL2/close_code.h
+%exclude /usr/lib64/libSDL2-2.0.so
+%exclude /usr/lib64/libSDL2.so
+%exclude /usr/lib64/pkgconfig/sdl2.pc
+%exclude /usr/share/aclocal/sdl2.m4
 
 %files lib
 %defattr(-,root,root,-)
