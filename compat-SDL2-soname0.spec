@@ -6,7 +6,7 @@
 #
 Name     : compat-SDL2-soname0
 Version  : 2.0.4
-Release  : 2
+Release  : 3
 URL      : https://www.libsdl.org/release/SDL2-2.0.4.tar.gz
 Source0  : https://www.libsdl.org/release/SDL2-2.0.4.tar.gz
 Summary  : Simple DirectMedia Layer
@@ -15,6 +15,11 @@ License  : CPL-1.0 Zlib
 Requires: compat-SDL2-soname0-bin
 Requires: compat-SDL2-soname0-lib
 BuildRequires : cmake
+BuildRequires : gcc-dev32
+BuildRequires : gcc-libgcc32
+BuildRequires : gcc-libstdc++32
+BuildRequires : glibc-dev32
+BuildRequires : glibc-libc32
 BuildRequires : pkgconfig(32alsa)
 BuildRequires : pkgconfig(32dbus-1)
 BuildRequires : pkgconfig(32gl)
@@ -64,6 +69,17 @@ Provides: compat-SDL2-soname0-devel
 dev components for the compat-SDL2-soname0 package.
 
 
+%package dev32
+Summary: dev32 components for the compat-SDL2-soname0 package.
+Group: Default
+Requires: compat-SDL2-soname0-lib32
+Requires: compat-SDL2-soname0-bin
+Requires: compat-SDL2-soname0-dev
+
+%description dev32
+dev32 components for the compat-SDL2-soname0 package.
+
+
 %package lib
 Summary: lib components for the compat-SDL2-soname0 package.
 Group: Libraries
@@ -72,8 +88,19 @@ Group: Libraries
 lib components for the compat-SDL2-soname0 package.
 
 
+%package lib32
+Summary: lib32 components for the compat-SDL2-soname0 package.
+Group: Default
+
+%description lib32
+lib32 components for the compat-SDL2-soname0 package.
+
+
 %prep
 %setup -q -n SDL2-2.0.4
+pushd ..
+cp -a SDL2-2.0.4 build32
+popd
 
 %build
 export LANG=C
@@ -82,9 +109,26 @@ pushd clr-build
 cmake .. -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_SHARED_LIBS:BOOL=ON -DLIB_INSTALL_DIR:PATH=%{_libdir} -DCMAKE_AR=/usr/bin/gcc-ar -DLIB_SUFFIX=64 -DCMAKE_RANLIB=/usr/bin/gcc-ranlib -DVIDEO_WAYLAND=off -DWAYLAND_SHARED=off
 make VERBOSE=1  %{?_smp_mflags}
 popd
+mkdir clr-build32
+pushd clr-build32
+export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
+export CFLAGS="$CFLAGS -m32"
+export CXXFLAGS="$CXXFLAGS -m32"
+cmake .. -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_SHARED_LIBS:BOOL=ON -DLIB_INSTALL_DIR:PATH=/usr/lib32 -DCMAKE_AR=/usr/bin/gcc-ar -DLIB_SUFFIX=32 -DCMAKE_RANLIB=/usr/bin/gcc-ranlib -DVIDEO_WAYLAND=off -DWAYLAND_SHARED=off
+make VERBOSE=1  %{?_smp_mflags}
+popd
 
 %install
 rm -rf %{buildroot}
+pushd clr-build32
+%make_install32
+if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
+then
+pushd %{buildroot}/usr/lib32/pkgconfig
+for i in *.pc ; do ln -s $i 32$i ; done
+popd
+fi
+popd
 pushd clr-build
 %make_install
 popd
@@ -183,7 +227,19 @@ popd
 %exclude /usr/lib64/pkgconfig/sdl2.pc
 %exclude /usr/share/aclocal/sdl2.m4
 
+%files dev32
+%defattr(-,root,root,-)
+%exclude /usr/lib32/libSDL2-2.0.so
+%exclude /usr/lib32/libSDL2.so
+%exclude /usr/lib32/pkgconfig/32sdl2.pc
+%exclude /usr/lib32/pkgconfig/sdl2.pc
+
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libSDL2-2.0.so.0
 /usr/lib64/libSDL2-2.0.so.0.4.0
+
+%files lib32
+%defattr(-,root,root,-)
+/usr/lib32/libSDL2-2.0.so.0
+/usr/lib32/libSDL2-2.0.so.0.4.0
