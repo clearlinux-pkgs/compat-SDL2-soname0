@@ -6,7 +6,7 @@
 #
 Name     : compat-SDL2-soname0
 Version  : 2.0.4
-Release  : 4
+Release  : 5
 URL      : https://www.libsdl.org/release/SDL2-2.0.4.tar.gz
 Source0  : https://www.libsdl.org/release/SDL2-2.0.4.tar.gz
 Summary  : Simple DirectMedia Layer
